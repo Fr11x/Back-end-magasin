@@ -1,0 +1,20 @@
+meta {
+  name: POST register
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/auth/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "nom": "Dupont",
+      "prenom": "Jean",
+      "adresse": "jean.dupont@example.com",
+      "mdp": "password123"
+  }
+}

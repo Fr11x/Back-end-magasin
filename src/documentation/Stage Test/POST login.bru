@@ -1,0 +1,30 @@
+meta {
+  name: POST login
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/api/auth/login?adresse=jean.dupont@example.com&password=password123
+  body: none
+  auth: none
+}
+
+params:query {
+  adresse: jean.dupont@example.com
+  password: password123
+}
+
+body:json {
+  {
+      "nom": "Dupont",
+      "prenom": "Jean",
+      "adresse": "jean.dupont@example.com",
+      "mdp": "password123"
+  }
+}
+
+body:text {
+  adresse=jean.dupont@example.com
+  password=password123
+}
