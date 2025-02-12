@@ -14,6 +14,7 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.StandardCopyOption
 
+@CrossOrigin(origins = ["http://localhost:4200"])
 @RestController
 @RequestMapping("/inventaire")
 class InventaireController(

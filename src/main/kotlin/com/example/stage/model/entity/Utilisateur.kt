@@ -1,11 +1,11 @@
 package com.example.stage.model.entity
 
+import com.fasterxml.jackson.annotation.JsonBackReference
+import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.persistence.*
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
-import org.springframework.boot.autoconfigure.domain.EntityScan
 
-@EntityScan("com.example.stage.model.entity")
 @Entity
 @Table(name = "utilisateur")
 data class Utilisateur(
@@ -28,5 +28,11 @@ data class Utilisateur(
 
     @Column(name = "mot_de_passe")
     @field:NotBlank(message = "Le mot de passe est obligatoire")
-    var mdp: String? = null
+    var mdp: String? = null,
+
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    @JsonBackReference
+    @JsonProperty("roles") // Cela garantit que la liste des rôles est incluse dans la réponse JSON
+    var role: Role?
 )

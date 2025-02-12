@@ -21,7 +21,7 @@ class SecurityConfig {
         http
             .authorizeHttpRequests { auth ->
                 auth
-                    .requestMatchers("/api/auth/**").permitAll() // Autorise l'accès à /api/auth/**
+                    .requestMatchers("/api/auth/**", "/api/roles/**", "/api/utilisateur/**", "/inventaire/**").permitAll() // Autorise l'accès à /api/auth/**
                     .anyRequest().authenticated() // Exige une authentification pour toutes les autres requêtes
             }
             .csrf { csrf ->

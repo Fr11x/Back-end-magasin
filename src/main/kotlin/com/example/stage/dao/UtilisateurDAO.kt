@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface UtilisateurDAO : JpaRepository<Utilisateur, Long>{
     fun findByAdresse(adresse: String): Utilisateur?
+    fun findByRoleId(roleId: Long): List<Utilisateur>
+
 }

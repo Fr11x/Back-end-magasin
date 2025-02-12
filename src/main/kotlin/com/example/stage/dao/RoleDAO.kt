@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface RoleDAO : JpaRepository<Role, Long> {
-
+    fun findByNom(nom: String): Role?
+    fun nom(nom: String): MutableList<Role>
 }
